@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>home</title>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+}
+#add{
+	height: 100vh;
+	background-color: white;
+	width: 100%;
+	position: relative;
+	z-index: 1000;
+	display: none;
+}
+.student{
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+.page{
+	position: absolute;
+	width: 100%;
+}
+button:focus{
+	box-shadow: none !important;
+}
+
+</style>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+	
+</head>
+<body>
+
+	<div class="container page">
+		<div class="row mt-2">
+			<div class="col-md-12">
+		<button onclick="ope();" title="Add student" class="btn border shadow-sm">
+			<span class="material-icons">note_add</span>
+		</button>		
+			</div>
+		</div>
+		
+
+		<div class="row mt-2">
+			<div class="col-md-1"></div>
+			<div class="col-md-10" id="student-table"></div>
+			<div class="col-md-1"></div>
+		</div>
+	</div>
+
+
+<div id="add" class="bg-primary" style="height: 100vh;width: 100%">
+		
+
+	<div class="close float-right">
+	<button class="btn font-weight-bold" onclick="cl();"><span class="material-icons">close</span>
+	</button>
+	</div>
+<div class="student border shadow-sm" style="width: 80%; position: relative;">
+	<div class="add-student mb-2">
+		<div class="row rounded-lg">
+			<div class="col-md-12">
+				<!-- <div class="utility"> -->
+					<div class="utility-save float-left">
+						<div class="btn-group data-control border shadow-sm m-2" style="border-radius: 50px; margin-left: 20%">
+						<button class="btn justify-content-center align-items-center d-flex" id="save-student-btn" title="Save Record">
+							<span class="material-icons" style="color: blue" >save</span>
+							<!-- <i style="font-size: 20px" class="fa fa-save"></i> -->
+						</button>
+						<button class="btn justify-content-center align-items-center d-flex" title="Print Record">
+							<span  class="material-icons" style="color: blue">print</span>
+						</button>
+						<button class="btn justify-content-center align-items-center d-flex" title="Delete Record">
+							<span  class="material-icons" style="color: red">delete</span>
+						</button>
+
+					</div>
+					</div>
+
+				<div class="d-none utility-control float-right" >
+					<div class="d-flex  border shadow-sm m-2 p-2" style="width: fit-content;margin-left:90px ;border-radius: 50px">
+						<button id="first" title="First Record" class="btn p-0 d-flex justify-content-center align-items-center mr-1" style="width: 20px;height: 20px"> <span class="material-icons">first_page</span> </button> 
+
+						<button id="prev" title="Preview Record" class="btn p-0 d-flex justify-content-center align-items-center mr-1" style="width: 20px;height: 20px"> <span class="material-icons">keyboard_arrow_left</span>	 </button> 
+
+						<button id="next" title="Nex Record" class="btn  p-0 d-flex justify-content-center align-items-center mr-1" style="width: 20px;height: 20px"> <span class="material-icons">keyboard_arrow_right</span> </button> 
+
+						<button id="last" title="Last Record"class="btn p-0 d-flex justify-content-center align-items-center mr-1" style="width: 20px;height: 20px"> <span class="material-icons">last_page</span> </button> 	
+					</div>
+					</div>
+			</div>
+	
+
+			<div class="col-md-6 m-auto border rounded-sm">
+				<form id="student-form">
+						<div class="media mb-2 mt-4">
+							<div>
+							<div class="s-pic border mb-1" style="overflow:hidden;">
+								
+								<img src="images/upload_pic.png" class="upload-pic" id="upload-pic" width="100%" style="width: 100px; height: 100px; position: absolute;">
+								<input type="file" name="photo" id="photo" required="required" class="photo" style="height: 100px;width: 100px; position: relative;opacity: 0" accept="*/image" >
+								<p class="image-notice d-none" style="color: red;position: absolute;text-align: center; top: 40px; size:10px; margin: 0;padding: 0">Upload 200kb<br> image </p>
+							</div>
+							<div>
+								<center>
+									
+									<i onclick='$("#photo").click()' style="font-size: 20px;margin-right: 5px;color:blue" class="fa fa-upload"></i>
+									
+									<i onclick='$("#photo").val("");$(".upload-pic").attr("src","images/upload_pic.png")' style="font-size: 20px; color: red" class="fa fa-ban"></i>	
+								</center>
+							</div>
+							
+							</div>
+							
+							<div class="media-content w-100 pl-4">
+								<div class="input-group input-group-sm mb-4">
+									<div class="input-group-prepend">
+										<span class="input-group-text bg-dark text-white" id="student-id">01</span>
+									</div>
+									<input type="text" required="required" name="s-name" placeholder="Student name" id="s-name" class=" form-control form-control-sm">	<input type="hidden" value="" id="o">
+
+								</div>
+
+								<input type="text" required="required" name="f-name" placeholder="Father name" id="f-name" class="f-name form-control form-control-sm">
+
+							</div>
+						</div>
+
+						<input type="text" required="required" name="m-name" placeholder="Mother name" class="mb-4 form-control form-control-sm" id="m-name">
+
+
+						<div class="input-group input-group-sm mb-4">
+							<div class="input-group-prepend">
+								<span class="input-group-text">DOB</span>
+							</div>
+							<input type="date" required="required" name="dob" id="dob" class="form-control form-control-sm">
+							<select class="custom-control border" id="gender" required="required" style="margin-left: 1px;">
+								<option>Male</option>
+								<option>Female</option>
+							</select>
+							<div class="input-group-append">
+								<span class="input-group-text">GENDER</span>
+							</div>
+						</div>
+
+						<div class="input-group input-group-sm mb-4">
+							<div class="input-group-prepend">
+								<span class="input-group-text">DOA</span>
+							</div>
+							<input type="date" required="required" name="doa" id="doa" class="form-control form-control-sm">
+							<select class="custom-control border" id="course" required="required" style="margin-left: 1px;">
+								<option>DCA</option>
+								<option>BCA</option>
+							</select>
+							<div class="input-group-append">
+								<span class="input-group-text">COURSE</span>
+							</div>
+						</div>
+
+						<div class="input-group input-group-sm mb-2">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Total fee</span>
+							</div>
+							<input type="number" required="required" name="total-fee" id="total-fee" class="total-fee form-control">
+							<select class="custom-control border" id="session" required="required" style="margin-left: 1px;">
+								<option>2020-21</option>
+								<option>2021-22</option>
+							</select>
+							<div class="input-group-append">
+								<span class="input-group-text">Session</span>
+							</div>
+						</div>
+
+				<ul class="nav nav-tabs" role="tablist">
+				    <li class="nav-item">
+				      <a class="nav-link active" data-toggle="tab" href="#contact">Contact</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#addres">Address</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link" data-toggle="tab" href="#fee">Fee Details</a>
+				    </li>
+				  </ul>
+
+				  <!-- Tab panes -->
+				  <div class="tab-content">
+				    <div id="contact" class="container tab-pane active"><br>
+				      
+				      <div class="input-group input-group-sm mb-4">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Mobile</span>
+							</div>
+							<input type="number" required="required" name="mobile-one" placeholder="Mobile 1" id="mobile-one" class=" form-control form-control-sm">
+							<input type="number" name="mobile-two" placeholder="Mobile 2" id="mobile-two" class="form-control form-control-sm">
+						</div>
+
+						<div class="input-group input-group-sm mb-5">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Email</span>
+							</div>
+							<input type="email" name="email" placeholder="Email" id="email" class="form-control form-control-sm">
+						</div>
+				    </div>
+				    <div id="addres" class="container tab-pane fade"><br>
+				      <div class="input-group input-group-sm mb-4">
+							<div class="input-group-prepend">
+								<span class="input-group-text">District</span>
+							</div>
+							<select class="custom-control border" id="district" required="required" style="margin-left: 1px;">
+								<option>Balarampur</option>
+								<option>Sarguja</option>
+							</select>
+							<input type="number" name="pincode" required="required" placeholder="Pincode" class="pincode form-control form-control-sm" id="pincode">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Pincode</span>
+							</div>
+						</div>
+
+						<div class="input-group input-group-sm mb-5">
+							<div class="input-group-prepend">
+								<span class="input-group-text">Address</span>
+							</div>
+							<input type="text" name="text" placeholder="address" class="form-control form-control-sm" id="address">
+						</div>
+				    </div>
+				    <div id="fee" class="container tab-pane fade"><br>
+				      <div style="height: 135px" class="fee-content">
+				      	
+				      </div>
+				    </div>
+				  </div>
+				</form>
+				</div>
+				</div>
+</div>
+</div>
+
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

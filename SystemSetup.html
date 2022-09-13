@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>System Setup</title>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
+</head>
+<body>
+
+<div class="container-fluid">
+<div class="row">
+	<div class="col-md-4 border shadow-sm p-3 m-5 rounded-lg" >
+		<div class="" >
+			<select id="list-type" class=" w-75 list form-control float-left mb-4">
+				<option>session</option>
+				<option>fee</option>
+			</select>
+			<i class="fa fa-plus float-left ml-3 mt-1 add-list-btn" id="add-list-btn" data-toggle="modal" data-target="#add-item" title="add Item" style="color:blue;font-size: 27px;"></i>	
+		</div>
+		<div class="list-tbale" style="clear: left;">
+
+			<ul class="list-group" id="list-data">
+  				
+			</ul>
+		</div>
+	</div>
+
+	<div class="col-md-6 border shadow-sm p-3 m-5 rounded-lg">
+			<div id="course">
+					<input class="form-control w-25 float-left mr-3 mb-4" type="text" name="course_name" id="course_name" placeholder="Enter Course Name">
+					<input class="form-control w-25 float-left mr-3 mb-4" type="text" name="course_fee" id="course_fee" placeholder="Enter Course Fee">
+					<button class="btn btn-primary float-left" id="save-course-btn">Save</button>	
+					<p class="m-0 ml-3 p-0 float-left text-danger font-weight-bold d-none course_notice">Course save success</p>
+			</div>
+
+			<div class="mt-3" id="show-course">
+			</div>
+		</div>
+	</div>
+</div>
+
+	<div class="modal animate__animated animate__fadeInDown faster" id="add-item">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div id="list">
+					<input class="form-control w-75 float-left mr-3" type="text" name="description" id="description" placeholder="Enter List Name">
+					<button class="btn btn-primary" id="save-list-btn">Save</button>	
+					</div>					
+				</div>
+				<center>
+				<div class="modal-footer">
+					
+					<p class="image-notice d-none"style="color:blue; size:15px; margin: 0;padding: 0">List Add Success ! </p>						
+				</div>
+				</center>
+			</div>
+		</div>
+	</div>
+
+
+<button class="s">
+		click
+	</button>
+<p class="test">
+	
+</p>
+
+<script src="js/main.js"></script>
+</body>
+</html>
